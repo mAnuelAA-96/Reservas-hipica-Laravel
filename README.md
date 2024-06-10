@@ -70,7 +70,7 @@ CAPTURAS
 
 - misreservas.php
 
-![misreservas](asset('images/vistas/misreservas.jpg'))
+![misreservas](./public/images/vistas/misreservas.jpg)
 
 - add.blade.php
 
