@@ -1,0 +1,61 @@
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Mis reservas') }}
+        </h2>
+    </x-slot>
+   
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg p-5">
+
+                <table class="w-full text-md rounded mb-4">
+                    <thead>
+                    <tr class="border-b dark:text-white text-center">
+                        <th class="text-left p-3 px-5">Fecha</th>
+                        <th class="text-left p-3 px-5">Hora</th>
+                        <th class="text-left p-3 px-5">Caballo</th>
+                        <th class="text-left p-3 px-5">Comentarios</th>
+                        <th class="text-left p-3 px-5">Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    @if($reservas)
+                        @foreach($reservas as $reserva)
+                            <tr class="border-b hover:bg-orange-100 dark:text-white text-center">
+                                <td class="p-3 px-5">
+                                    {{$reserva->fecha}}
+                                </td>
+                                <td class="p-3 px-5">
+                                    {{ \Carbon\Carbon::parse($reserva->hora)->format('H:i') }}
+                                </td>
+                                <td class="p-3 px-5">
+                                    {{$reserva->getNombreCaballo()}}
+                                </td>
+                                <td class="p-3 px-5">
+                                    {{$reserva->comentarios}}
+                                </td>
+                                <td class="p-3 px-5">                                  
+                                    <form action="/editreserva/{{ $reserva->id }}" class="inline-block">  
+                                        <a href="/editreserva/{{ $reserva->id }}" name="reservas.edit" class="text-sm bg-gray-500 hover:bg-gray-700 text-white py-1 px-4 rounded focus:outline-none focus:shadow-outline">Editar</a>    
+                                        <button type="submit" name="delete" formmethod="POST" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Borrar</button>
+                                        {{ csrf_field() }}
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+
+                    @else
+                        <tr>
+                            <td colspan="3" class="text-sm bg-gray-500 hover:bg-gray-700 text-white py-1 px-4 rounded focus:outline-none focus:shadow-outline">No hay notas disponibles.</td>
+                        </tr>
+                    @endif
+
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </div>
+</x-app-layout>
