@@ -74,19 +74,19 @@ CAPTURAS
 
 - add.blade.php
 
-![add](asset('images/vistas/addreserva.jpg'))
+![add](./public/images/vistas/addreserva.jpg)
 
 - edit.blade.php
 
-![edit](asset('images/vistas/editreserva.jpg'))
+![edit](./public/images/vistas/editreserva.jpg)
 
 - caballos.blade.php
 
-![caballos](asset('images/vistas/caballos.jpg'))
+![caballos](./public/images/vistas/caballos.jpg)
 
 - Panel de administración
 
-![adminpanel](asset('images/vistas/adminpanel.jpg'))
+![adminpanel](./public/images/vistas/adminpanel.jpg)
 
 
 
